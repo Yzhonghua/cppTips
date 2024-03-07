@@ -34,3 +34,12 @@ When we use template to build a function or class, we will need to put the defin
   }
   ```
   This also means that linker wont need to look for definition and make connection any more. But it doed get a new job: Instantiation Deduplication. The linker will ensure that only one instance of the instantiated template function is kept in the final binary.
+
+
+# Break into the three stages a programm runs
+- Compiler's Role
+  The compiler generate ocject code from the source file, which include placeholders or symbolic references for functions, variables, and other entities that are not defined within the same translation unit. At this stage, the compiler does not deal with virtual memory addresses directly. It leaves symbols or placeholders that indicate a reference needs to be resolved to an address, but it does not specify what that address will be.
+- Linker's Role
+  The linker resolves these symbolic references by matching them with their definitions in other object files or libraries. When the linker resolves a reference, it updates the code or data with an address that indicates where the referenced entity will be located in the final executable or shared library. These are effectively virtual addresses.
+- Virtual Memory Management
+  When a program is executed, the operating system loads it into virtual memory. The virtual addresses used in the program are then translated into physical addresses by the memory management unit (MMU) of the CPU, with the operating system's help.
