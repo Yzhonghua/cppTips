@@ -43,3 +43,7 @@ When we use template to build a function or class, we will need to put the defin
   The linker resolves these symbolic references by matching them with their definitions in other object files or libraries. When the linker resolves a reference, it updates the code or data with an address that indicates where the referenced entity will be located in the final executable or shared library. These are effectively virtual addresses.
 - Virtual Memory Management
   When a program is executed, the operating system loads it into virtual memory. The virtual addresses used in the program are then translated into physical addresses by the memory management unit (MMU) of the CPU, with the operating system's help.
+
+
+# Access to private members
+ Normally, private members of a class cannot be accessed from outside that class. However, there's an exception in C++: within a class's member functions, you can access the private (and protected) members of another object of the same class type. That is, In C++, private and protected members of a class are accessible from within other objects of the same class. This is part of the language specification and allows one instance of a class to access the private and protected members of another instance of the same class.
