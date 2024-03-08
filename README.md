@@ -46,4 +46,27 @@ When we use template to build a function or class, we will need to put the defin
 
 
 # Access to private members
- Normally, private members of a class cannot be accessed from outside that class. However, there's an exception in C++: within a class's member functions, you can access the private (and protected) members of another object of the same class type. That is, In C++, private and protected members of a class are accessible from within other objects of the same class. This is part of the language specification and allows one instance of a class to access the private and protected members of another instance of the same class.
+ Normally, private members of a class cannot be accessed from outside that class. However, there's an exception in C++: within a class's member functions, you can access the private (and protected) members of another object of the same class type. 
+ 
+ That is, In C++, private and protected members of a class are accessible from within other objects of the same class. This is part of the language specification and allows one instance of a class to access the private and protected members of another instance of the same class.
+
+# functon overload
+  The folloing code can't compile. Compiler says: functions that differ only in their return type cannot be overloaded.
+  ```
+  const T &operator[](size_t i) { return __data[i]; };
+  
+  T &operator[](size_t i) { return __data[i]; };
+  ```
+  But if we change it to:
+  ```
+  const T &operator[](size_t i) const { return __data[i]; };
+  
+  T &operator[](size_t i) { return __data[i]; };
+  ```
+  They are good to go. The first version is __const-qualified__, which means it can be called on __const__ instances of __myvector__, and it returns a reference to a __const T__. The second version is __not const-qualified__ and can be called on __non-const__ instances of __myvector__, returning a reference to a T that can be modified.
+  
+  Also for the above process, compiler will help use to make the choice.
+  
+- const object can't call the second one.
+  
+- non-const onject can call the second one but only if the first one is not available, or if you explicitly call a const member function through a const reference or pointer to the object. It will prefer the second one because it allows modifications to the object.
