@@ -50,7 +50,8 @@ When we use template to build a function or class, we will need to put the defin
  
  That is, In C++, private and protected members of a class are accessible from within other objects of the same class. This is part of the language specification and allows one instance of a class to access the private and protected members of another instance of the same class.
 
-# functon overload
+
+# Functon overload
   The folloing code can't compile. Compiler says: functions that differ only in their return type cannot be overloaded.
   ```
   const T &operator[](size_t i) { return __data[i]; };
@@ -70,3 +71,9 @@ When we use template to build a function or class, we will need to put the defin
 - const object can't call the second one.
   
 - non-const onject can call the second one but only if the first one is not available, or if you explicitly call a const member function through a const reference or pointer to the object. It will prefer the second one because it allows modifications to the object.
+
+
+# Inheritance summary
+- If you want to enforce derived classes to implement a method, use pure virtual (=0)
+- If you want to make it optional for derived classes to override a method, use virtual.
+- Avoid overriding non-virtual methods.
