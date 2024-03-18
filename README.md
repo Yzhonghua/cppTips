@@ -77,3 +77,11 @@ When we use template to build a function or class, we will need to put the defin
 - If you want to enforce derived classes to implement a method, use pure virtual (=0)
 - If you want to make it optional for derived classes to override a method, use virtual.
 - Avoid overriding non-virtual methods.
+
+
+# static
+- extend lifetime.
+- upgrade to a class-level variable, shared by all class instances.
+
+  and can also be accessed without generate a class instance. (size_t minCapacity = myvector<int>::MINIMUM_CAPACITY;)
+- restrict internal access.
