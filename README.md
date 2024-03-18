@@ -85,3 +85,22 @@ When we use template to build a function or class, we will need to put the defin
 
   and can also be accessed without generate a class instance. (size_t minCapacity = myvector<int>::MINIMUM_CAPACITY;)
 - restrict internal access.
+
+
+# constexpr
+  a type that make sure its value is known and const during compile time, so can be used as the size of an array / template parameters.
+  ```
+  const int a = 10;
+  int arr[a]; // some compiler may allow
+
+  constexpr int a = 10;
+  int arr[a]; // allow by standard
+
+  constexpr int func() { return 10; } // constexpr function
+  constexpr int a = func(); // use constexpr function to init constexpr variables
+
+  // both need to be initialized on declaration
+  // it just const's value may be sured during runtime.
+  const int num = 10;
+  constexpr num = 10;
+  ```
