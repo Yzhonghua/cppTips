@@ -86,7 +86,7 @@ When we use template to build a function or class, we will need to put the defin
   for static function, can't use this pointer which belongs to an instance.
 
   and can also be accessed without generate a class instance. (size_t minCapacity = myvector<int>::MINIMUM_CAPACITY;)
-- restrict internal access.
+- restrict internal access. So you don't need to worry about naming conflicts.
 
 
 # constexpr
