@@ -104,3 +104,24 @@ When we use template to build a function or class, we will need to put the defin
   const int num = 10;
   constexpr num = 10;
   ```
+
+
+# Polymorphism
+- Static Polymorphism (Compile-time Polymorphism)
+  Including methods/operators overloading, and templates.
+
+  Efficient as it's resolved at compile time. But less flexible.
+  
+- Dynamic Polymorphism (Run-time Polymorphism)
+  Including inheritance and virtual methods.
+
+  When a virtual function is called via a reference or pointer of the base class,
+  the actual function that gets called is determined by the actual type of the object,
+  and this decision is made at run-time.
+
+  Great flexibility and extensibility at the cost of performence.
+
+  Whether it is external input (such as user input, file data, network requests, interfaces) or internal state conversion,
+   the core of dynamic polymorphism usually involves operating different subclass objects through base class references or pointers.
+
+  Factory pattern, Strategy pattern(navigation app), State pattern(networking, Connected, disconnected, connecting).
