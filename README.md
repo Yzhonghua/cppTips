@@ -80,8 +80,10 @@ When we use template to build a function or class, we will need to put the defin
 
 
 # static
-- extend lifetime.
+- extend lifetime (only allocated once, keeping its value when be called next time).
 - upgrade to a class-level variable, shared by all class instances.
+
+  for static function, can't use this pointer which belongs to an instance.
 
   and can also be accessed without generate a class instance. (size_t minCapacity = myvector<int>::MINIMUM_CAPACITY;)
 - restrict internal access.
