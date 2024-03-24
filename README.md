@@ -127,3 +127,19 @@ When we use template to build a function or class, we will need to put the defin
    the core of dynamic polymorphism usually involves operating different subclass objects through base class references or pointers.
 
   Factory pattern, Strategy pattern(navigation app), State pattern(networking, Connected, disconnected, connecting).
+
+
+# initialization list
+- For member variables of class types, if you do not use an initializer list, the member variables will first be default constructed and then assigned again in the constructor body (if you assign them there). This means that the object will undergo a meaningless construction and immediate subsequent assignment, which is a waste of resources, especially when the construction and assignment operations of these class type members consume large resources.
+
+- If there are dependencies between member variables of a class, using an initialization list can clearly control the order in which they are initialized, which is very important to ensure the correctness of the object state.
+
+- For some types of member variables, such as constant (const) members and reference (&) members, they must be initialized in the initialization list because they cannot be assigned (const members cannot be changed once they are constructed, and reference members must be declared is bound to the object).
+
+  For static member variables:
+
+- Static member variables are not associated with any specific object instance of the class, they belong to the class itself. There is only one copy of each static member variable, no matter how many instances of the class you create.
+
+  Static member variables need to be defined and initialized outside the class (unless it is constexpr, in which case it can be initialized inside the class). This is because they are allocated memory when the program starts, even if no object instance of the class is created.
+
+- For static member variables of built-in types, if you do not initialize them explicitly, they are automatically initialized to zero. This is different from non-static built-in type member variables, which are uninitialized by default.
