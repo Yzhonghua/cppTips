@@ -33,7 +33,7 @@ When we use template to build a function or class, we will need to put the defin
     return a + b;
   }
   ```
-  This also means that linker wont need to look for definition and make connection any more. But it doed get a new job: Instantiation Deduplication. The linker will ensure that only one instance of the instantiated template function is kept in the final binary.
+  Linker also gets a new job rather than linking every function signatures to corresponding definitions: Instantiation Deduplication. The linker will ensure that only one instance of the instantiated template function is kept in the final binary.
 
 
 # Break into the three stages a programm runs
